@@ -1,7 +1,6 @@
 package Controller;
 
 import java.util.HashMap;
-import java.util.stream.Collectors;
 
 
 public class Inventario {
@@ -42,14 +41,14 @@ public class Inventario {
         }
     }
     
-    // TODO: Implementar metodo para generar informes del inventario
+
     public void listarProductos() {
         for (Producto producto : productos.values()) {
             System.out.println(producto);
         }
     }
     
-    // TODO: Implementar metodo para buscar productos por codigo
+
     public void buscarProductoPorNombreODescripcion(String terminoBusqueda) {
         String terminoBusquedaMinusculas = terminoBusqueda.toLowerCase();
         long count = productos.values().stream()

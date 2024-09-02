@@ -8,7 +8,7 @@ public class Producto {
     private double precio;
     private int cantidadEnStock;
     
-    // Constructor, getters y setters aqui
+    // Constructores, getters y setters aqui
     public Producto(){
         
     }
@@ -58,7 +58,7 @@ public class Producto {
         this.precio = nuevoPrecio;
     }
     
-    // TODO: Agregar metodo para descripcion detallada del producto
+
     @Override
     public String toString() {
         return "Producto{" +
