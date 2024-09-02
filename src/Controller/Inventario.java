@@ -10,7 +10,6 @@ public class Inventario {
         productos = new HashMap<>();
     }
     
-    // Metodo para agregar productos al inventario
     public void agregarProducto(Producto producto){
         productos.put(producto.getCodigo(), producto);
         System.out.println("--> Producto agregado correctamente: " + producto.getNombre());
@@ -54,9 +53,8 @@ public class Inventario {
         long count = productos.values().stream()
                 .filter(producto -> producto.getNombre().toLowerCase().contains(terminoBusquedaMinusculas) ||
                         producto.getDescripcion().toLowerCase().contains(terminoBusquedaMinusculas))
-                .peek(System.out::println) // Mostrar los productos encontrados
+                .peek(System.out::println) 
                 .count();
-
         if (count == 0) {
             System.out.println("No se encontraron productos.");
         }

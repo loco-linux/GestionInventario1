@@ -15,13 +15,15 @@ public class MenuPrincipal {
         Inventario inventario = new Inventario();
 
         Producto producto1 = new Producto("1","Shampoo","Producto de aseo del cabello",5400, 5);
-        inventario.agregarProducto(producto1);
+            producto1.setCantidadEnStock(7);
+            inventario.agregarProducto(producto1);
         Producto producto2 = new Producto("2","Leche","Leche semi-descremada",990, 15);
-        inventario.agregarProducto(producto2);
+            producto2.actualizarPrecio(890);
+            inventario.agregarProducto(producto2);
         Producto producto3 = new Producto("3","Cafe","Cafe de 90gr",1800, 7);
-        inventario.agregarProducto(producto3);
+            inventario.agregarProducto(producto3);
         Producto producto4 = new Producto("4","Jabon","Jabon en barra",850, 20);
-        inventario.agregarProducto(producto4);
+            inventario.agregarProducto(producto4);
         
         
         do{
@@ -57,10 +59,22 @@ public class MenuPrincipal {
                     String descripcion = teclado.nextLine();
                     System.out.println("Ingrese el precio: ");
                     String precio1 = teclado.next();
-                    double precio = Double.parseDouble(precio1);
+                    double precio;
+                    try{
+                        precio = Double.parseDouble(precio1);
+                    }catch(NumberFormatException io){
+                        System.out.println("[Error] Ingrese un precio valido...");
+                        break;
+                    }
                     System.out.println("Ingrese la cantidad de Stock: ");
                     String cantidad = teclado.next();
-                    int cantidadEnStock = Integer.parseInt(cantidad);
+                    int cantidadEnStock;
+                    try{
+                    cantidadEnStock = Integer.parseInt(cantidad);
+                    }catch(NumberFormatException io){
+                        System.out.println("[Error] Ingrese un stock valido...");
+                        break;
+                    }
                     inventario.agregarProducto(new Producto(codigo,nombre,descripcion,precio,cantidadEnStock));
                 }
                 case 2 -> {
@@ -103,7 +117,7 @@ public class MenuPrincipal {
                         }
                         case 2 -> {
                             System.out.print("Ingrese nombre o descripcion: ");
-                            String nombreODesc = teclado.next();                          
+                            String nombreODesc = teclado.next(); teclado.nextLine();                          
                             inventario.buscarProductoPorNombreODescripcion(nombreODesc);
                         }
                         default -> System.out.println("Ingrese una opcion valida...");

@@ -53,7 +53,6 @@ public class Producto {
     }
     
     
-    // TODO: Implementar metodo para actualizar el precio del producto
     public void actualizarPrecio(double nuevoPrecio){
         this.precio = nuevoPrecio;
     }
